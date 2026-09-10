@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>爱妻如命-深情宠妻题材短剧小说与观读指南</title>
+<meta name="description" content="爱妻如命专题页面，围绕深情宠妻题材的短剧、小说与情感故事，整理题材看点、常见设定、观读方式与选择建议，帮助读者快速理解这一热门情感内容方向。">
+<meta name="keywords" content="爱妻如命,宠妻短剧,深情小说,情感故事,甜宠题材,观读指南">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --rose:#c2185b;
+    --rose-soft:#f8d7e3;
+    --rose-deep:#7d1039;
+    --ink:#2a1f24;
+    --ink-soft:#6b5a61;
+    --cream:#fff8fa;
+    --card:#ffffff;
+    --line:#f0d9e2;
+    --gold:#c9a24a;
+    --radius:16px;
+    --shadow:0 10px 30px rgba(194,24,91,.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{width:min(1180px,92%);margin:0 auto;}
+
+  /* 顶部 */
+  .topbar{
+    background:linear-gradient(120deg,#7d1039,#c2185b 60%,#e05a8a);
+    color:#fff;
+    font-size:13px;
+    padding:8px 0;
+  }
+  .topbar .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .topbar span{opacity:.9;}
+
+  header.site-head{
+    background:rgba(255,248,250,.96);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+  }
+  .head-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:20px;padding:14px 0;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-mark{
+    width:44px;height:44px;border-radius:12px;flex:0 0 auto;
+    background:linear-gradient(135deg,#c2185b,#e05a8a);
+    display:grid;place-items:center;color:#fff;font-weight:700;font-size:19px;
+    box-shadow:0 6px 16px rgba(194,24,91,.28);
+  }
+  .brand-text b{display:block;font-size:19px;letter-spacing:.5px;}
+  .brand-text small{color:var(--ink-soft);font-size:12px;letter-spacing:2px;}
+
+  nav.main-nav ul{display:flex;gap:6px;list-style:none;flex-wrap:wrap;}
+  nav.main-nav a{
+    display:block;padding:8px 14px;border-radius:999px;font-size:15px;
+    color:var(--ink-soft);transition:.2s;
+  }
+  nav.main-nav a:hover,nav.main-nav a.active{
+    background:var(--rose-soft);color:var(--rose-deep);font-weight:600;
+  }
+
+  /* 首屏 */
+  .hero{
+    padding:56px 0 46px;
+    background:
+      radial-gradient(900px 380px at 88% 0%,rgba(224,90,138,.20),transparent 70%),
+      radial-gradient(700px 320px at 5% 100%,rgba(201,162,74,.14),transparent 70%);
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.25fr .95fr;gap:44px;align-items:center;
+  }
+  .hero-tag{
+    display:inline-block;background:#fff;border:1px solid var(--line);
+    color:var(--rose);font-size:13px;padding:5px 14px;border-radius:999px;
+    margin-bottom:18px;letter-spacing:1px;
+  }
+  .hero h1{
+    font-size:clamp(28px,4vw,44px);line-height:1.3;letter-spacing:1px;
+    margin-bottom:18px;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--rose);
+    background:linear-gradient(180deg,transparent 62%,var(--rose-soft) 62%);
+    padding:0 4px;
+  }
+  .hero p.lead{color:var(--ink-soft);font-size:16.5px;max-width:56ch;margin-bottom:26px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:12px 26px;border-radius:999px;font-size:15px;
+    font-weight:600;transition:.22s;border:1px solid transparent;cursor:pointer;
+  }
+  .btn-primary{background:linear-gradient(135deg,#c2185b,#e05a8a);color:#fff;box-shadow:0 10px 22px rgba(194,24,91,.26);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(194,24,91,.34);}
+  .btn-ghost{background:#fff;border-color:var(--line);color:var(--rose-deep);}
+  .btn-ghost:hover{border-color:var(--rose);}
+
+  .hero-card{
+    background:var(--card);border:1px solid var(--line);border-radius:22px;
+    padding:26px;box-shadow:var(--shadow);
+  }
+  .hero-card h3{font-size:16px;margin-bottom:16px;color:var(--rose-deep);letter-spacing:.5px;}
+  .hero-card ul{list-style:none;display:grid;gap:13px;}
+  .hero-card li{display:flex;gap:12px;font-size:14.5px;color:var(--ink-soft);}
+  .dot{
+    flex:0 0 auto;width:22px;height:22px;border-radius:50%;
+    background:var(--rose-soft);color:var(--rose-deep);
+    font-size:12px;display:grid;place-items:center;font-weight:700;margin-top:3px;
+  }
+
+  /* 通用区块 */
+  section{padding:52px 0;}
+  .sec-head{margin-bottom:30px;}
+  .sec-head .kicker{
+    font-size:13px;letter-spacing:3px;color:var(--gold);font-weight:700;
+    text-transform:uppercase;display:block;margin-bottom:8px;
+  }
+  .sec-head h2{font-size:clamp(22px,2.6vw,30px);letter-spacing:.5px;}
+  .sec-head p{color:var(--ink-soft);margin-top:10px;max-width:72ch;font-size:15px;}
+
+  /* 题材看点 */
+  .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .feature{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;transition:.24s;
+  }
+  .feature:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#f2c4d6;}
+  .feature .ico{
+    width:42px;height:42px;border-radius:12px;background:var(--rose-soft);
+    display:grid;place-items:center;font-size:20px;margin-bottom:14px;
+  }
+  .feature h3{font-size:17px;margin-bottom:9px;}
+  .feature p{font-size:14.5px;color:var(--ink-soft);}
+
+  /* 设定解析 */
+  .setting{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .setting-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;}
+  .setting-list{display:grid;gap:16px;}
+  .setting-item{
+    background:var(--cream);border-left:4px solid var(--rose);
+    border-radius:0 12px 12px 0;padding:16px 20px;
+  }
+  .setting-item h3{font-size:16px;margin-bottom:6px;}
+  .setting-item p{font-size:14.5px;color:var(--ink-soft);}
+  .setting-aside{
+    background:linear-gradient(150deg,#7d1039,#c2185b);color:#fff;
+    border-radius:20px;padding:30px;
+  }
+  .setting-aside h3{font-size:19px;margin-bottom:14px;letter-spacing:.5px;}
+  .setting-aside p{font-size:14.5px;opacity:.92;margin-bottom:14px;}
+  .setting-aside ul{list-style:none;display:grid;gap:11px;font-size:14.5px;}
+  .setting-aside li{padding-left:20px;position:relative;opacity:.95;}
+  .setting-aside li::before{
+    content:"♥";position:absolute;left:0;top:0;color:#f8b8d0;font-size:12px;
+  }
+
+  /* 榜单 */
+  .rank-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .rank-item{
+    display:flex;gap:16px;background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:18px 20px;transition:.22s;
+  }
+  .rank-item:hover{border-color:#f2c4d6;box-shadow:var(--shadow);}
+  .rank-no{
+    flex:0 0 auto;width:38px;height:38px;border-radius:10px;
+    display:grid;place-items:center;font-weight:700;font-size:16px;
+    background:var(--rose-soft);color:var(--rose-deep);
+  }
+  .rank-item:nth-child(1) .rank-no{background:linear-gradient(135deg,#c2185b,#e05a8a);color:#fff;}
+  .rank-item:nth-child(2) .rank-no{background:linear-gradient(135deg,#c9a24a,#e0c37a);color:#fff;}
+  .rank-item:nth-child(3) .rank-no{background:linear-gradient(135deg,#8a6a2f,#b8944f);color:#fff;}
+  .rank-body h3{font-size:16px;margin-bottom:5px;}
+  .rank-body p{font-size:14px;color:var(--ink-soft);}
+  .rank-meta{font-size:12.5px;color:var(--gold);margin-top:7px;letter-spacing:.5px;}
+
+  /* 观读指南 */
+  .guide{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .guide-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .step{position:relative;padding-top:16px;}
+  .step::before{
+    content:"";position:absolute;top:0;left:0;width:44px;height:3px;
+    background:linear-gradient(90deg,#c2185b,#e05a8a);border-radius:3px;
+  }
+  .step b{display:block;font-size:13px;color:var(--gold);letter-spacing:2px;margin-bottom:8px;}
+  .step h3{font-size:16px;margin-bottom:8px;}
+  .step p{font-size:14px;color:var(--ink-soft);}
+
+  /* 常见问题 */
+  .faq-list{display:grid;gap:14px;max-width:900px;}
+  details{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px 22px;transition:.2s;
+  }
+  details[open]{border-color:#f2c4d6;box-shadow:var(--shadow);}
+  summary{
+    cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;
+    display:flex;justify-content:space-between;gap:16px;align-items:center;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";color:var(--rose);font-size:20px;font-weight:400;line-height:1;
+  }
+  details[open] summary::after{content:"−";}
+  details p{margin-top:12px;font-size:14.5px;color:var(--ink-soft);}
+
+  /* 提示条 */
+  .notice{
+    margin-top:34px;background:var(--rose-soft);border-radius:var(--radius);
+    padding:20px 24px;font-size:14px;color:var(--rose-deep);
+    border:1px dashed #eab6cd;
+  }
+  .notice b{display:block;margin-bottom:6px;font-size:15px;}
+
+  /* 页脚 */
+  footer.site-foot{
+    background:#2a1f24;color:#d9c9d0;padding:48px 0 24px;margin-top:20px;
+  }
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;}
+  .foot-grid h4{color:#fff;font-size:15px;margin-bottom:14px;letter-spacing:.5px;}
+  .foot-grid p,.foot-grid li{font-size:13.5px;line-height:2;color:#b7a4ac;}
+  .foot-grid ul{list-style:none;}
+  .foot-grid a:hover{color:#f8b8d0;}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:20px;
+    font-size:13px;color:#9c8a92;display:flex;justify-content:space-between;
+    gap:14px;flex-wrap:wrap;
+  }
+
+  /* 响应式 */
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:30px;}
+    .feature-grid{grid-template-columns:repeat(2,1fr);}
+    .setting-grid{grid-template-columns:1fr;}
+    .guide-steps{grid-template-columns:repeat(2,1fr);}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:640px){
+    .topbar .wrap{justify-content:center;text-align:center;}
+    .head-inner{justify-content:center;text-align:center;}
+    nav.main-nav ul{justify-content:center;}
+    .hero{padding:38px 0 34px;}
+    section{padding:40px 0;}
+    .feature-grid,.rank-grid,.guide-steps,.foot-grid{grid-template-columns:1fr;}
+    .hero-actions .btn{flex:1 1 auto;text-align:center;}
+    .foot-bottom{justify-content:center;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>深情宠妻题材内容专题 · 观读参考</span>
+    <span>内容仅供阅读与观看参考，请理性选择</span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <div class="brand">
+      <div class="brand-mark">爱</div>
+      <div class="brand-text">
+        <b>爱妻如命</b>
+        <small>深情宠妻题材专题</small>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a class="active" href="#intro">题材概览</a></li>
+        <li><a href="#feature">核心看点</a></li>
+        <li><a href="#setting">常见设定</a></li>
+        <li><a href="#rank">热门方向</a></li>
+        <li><a href="#guide">观读指南</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero" id="intro">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-tag">短剧 · 小说 · 情感故事</span>
+        <h1>「爱妻如命」：把深情写进日常的<em>宠妻题材</em>世界</h1>
+        <p class="lead">
+          “爱妻如命”常用于形容一个角色把妻子放在心尖上的极致深情。在短剧与网络小说中，它逐渐成为一类稳定受欢迎的题材标签：主角对外冷静克制，对妻子却处处偏爱、事事上心。这类内容为什么吸引人？常见设定有哪些？又该如何挑选适合自己的作品？本页从题材特征、典型设定、观读方式等方面做一次系统梳理。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#feature">了解核心看点</a>
+          <a class="btn btn-ghost" href="#guide">查看观读指南</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h3>本页能帮你了解什么</h3>
+        <ul>
+          <li><span class="dot">1</span><span>“爱妻如命”这类题材的基本含义与情感内核</span></li>
+          <li><span class="dot">2</span><span>短剧、小说中常见的角色关系与情节走向</span></li>
+          <li><span class="dot">3</span><span>挑选作品时可以关注的几个判断维度</span></li>
+          <li><span class="dot">4</span><span>观读时的节奏安排与内容辨别建议</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 核心看点 -->
+  <section id="feature">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Core Appeal</span>
+        <h2>这类题材为什么让人上头</h2>
+        <p>宠妻题材的吸引力并不只来自“甜”，更来自一种稳定的情感预期：无论外部环境如何变化，主角对妻子的态度始终如一。以下三个方向，是读者与观众反馈中最常被提到的看点。</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature">
+          <div class="ico">💗</div>
+          <h3>极致偏爱的安全感</h3>
+          <p>主角往往在公开场合不轻易表露情绪，却会在妻子面前放下防备。这种“只对一个人特殊”的设定，构成了最直接的情感满足，也让剧情在细节处更容易打动人。</p>
+        </article>
+        <article class="feature">
+          <div class="ico">🛡️</div>
+          <h3>护妻与解围的爽感</h3>
+          <p>当妻子受到误解、刁难或委屈时，主角及时出现并妥善处理，是这类作品的高频桥段。它回应了观众对“被坚定选择、被认真保护”的心理期待。</p>
+        </article>
+        <article class="feature">
+          <div class="ico">🌱</div>
+          <h3>关系成长的层次感</h3>
+          <p>优秀的作品不会只停留在宠溺表面，而是让两人的关系经历误会、磨合到彼此理解。感情线有推进、有变化，才更容易让读者持续投入。</p>
+        </article>
+        <article class="feature">
+          <div class="ico">🎭</div>
+          <h3>身份反差带来的张力</h3>
+          <p>主角可能拥有不为人知的身份或能力，前期低调、后期逐渐显露。反差既服务于剧情推进，也让宠妻行为显得更有分量。</p>
+        </article>
+        <article class="feature">
+          <div class="ico">🏠</div>
+          <h3>生活化的细腻日常</h3>
+          <p>做饭、接送、记住喜好、处理家庭琐事……这些日常细节往往比宏大情节更能体现“如命”二字，也让故事更贴近真实生活感受。</p>
+        </article>
+        <article class="feature">
+          <div class="ico">⚖️</div>
+          <h3>平等与尊重的底色</h3>
+          <p>真正被认可的作品，宠是建立在尊重之上的。妻子有自己的事业、判断和选择，两人是并肩关系，而非单方面的给予，这一点越来越被读者看重。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常见设定 -->
+  <section class="setting" id="setting">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Story Settings</span>
+        <h2>常见设定与人物关系解析</h2>
+        <p>不同作品的具体情节千差万别，但围绕“爱妻如命”这一核心，往往会落到几种相对固定的设定框架上。了解这些框架，有助于更快判断一部作品是否合自己的口味。</p>
+      </div>
+      <div class="setting-grid">
+        <div class="setting-list">
+          <div class="setting-item">
+            <h3>先婚后爱型</h3>
+            <p>两人因家族安排、协议或其他原因结为夫妻，起初关系疏离，随后在日常相处中逐渐产生真实感情。看点在于关系从“名义”走向“真心”的过程。</p>
+          </div>
+          <div class="setting-item">
+            <h3>重逢与追妻型</h3>
+            <p>男女主曾有过往，因误会或变故而分开，多年后再次相遇。主角带着歉意与深情重新靠近，看点在于弥补与和解，以及情绪释放的节点。</p>
+          </div>
+          <div class="setting-item">
+            <h3>隐藏身份型</h3>
+            <p>主角表面普通，实际拥有较强背景或能力，前期低调隐忍，关键时刻出手护妻。反差感是这类设定的主要推动力。</p>
+          </div>
+          <div class="setting-item">
+            <h3>事业并肩型</h3>
+            <p>夫妻二人在职场或创业中互相扶持，感情线与事业线交织推进。这类作品更强调共同成长与相互成就。</p>
+          </div>
+          <div class="setting-item">
+            <h3>家庭日常型</h3>
+            <p>弱化激烈冲突，聚焦柴米油盐中的体贴与陪伴。节奏相对舒缓，适合偏好温馨治愈氛围的读者。</p>
+          </div>
+        </div>
+        <aside class="setting-aside">
+          <h3>判断一部作品是否值得看</h3>
+          <p>设定只是外壳，真正决定观感的是人物是否立得住、情感推进是否自然。可以从以下几个角度快速判断。</p>
+          <ul>
+            <li>妻子的角色是否有独立性格与行动力</li>
+            <li>宠爱是否建立在尊重与理解之上</li>
+            <li>冲突是否服务于关系成长，而非单纯制造误会</li>
+            <li>情节节奏是否张弛有度，避免长期压抑</li>
+            <li>结局走向是否与前期铺垫相呼应</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门方向 -->
+  <section id="rank">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Popular Directions</span>
+        <h2>当前较受关注的内容方向</h2>
+        <p>以下为题材层面的方向归纳，用于帮助读者按偏好筛选，不代表对任何具体作品的评价或排名。</p>
+      </div>
+      <div class="rank-grid">
+        <article class="rank-item">
+          <div class="rank-no">01</div>
+          <div class="rank-body">
+            <h3>短剧：强节奏护妻线</h3>
+            <p>单集时长较短，冲突集中、反转密集，适合碎片时间观看。护妻桥段出现频率高，情绪反馈直接。</p>
+            <div class="rank-meta">适合：偏好快节奏、即时爽感</div>
+          </div>
+        </article>
+        <article class="rank-item">
+          <div class="rank-no">02</div>
+          <div class="rank-body">
+            <h3>小说：细水长流情感线</h3>
+            <p>篇幅更完整，人物心理描写更充分，能够展开较长的关系变化过程，情感积累更扎实。</p>
+            <div class="rank-meta">适合：偏好沉浸式阅读、人物刻画</div>
+          </div>
+        </article>
+        <article class="rank-item">
+          <div class="rank-no">03</div>
+          <div class="rank-body">
+            <h3>都市背景：职场与家庭交织</h3>
+            <p>将感情线置于现实生活场景中，涉及工作压力、家庭关系等议题，代入感较强。</p>
+            <div class="rank-meta">适合：偏好现实感、生活化叙事</div>
+          </div>
+        </article>
+        <article class="rank-item">
+          <div class="rank-no">04</div>
+          <div class="rank-body">
+            <h3>轻喜风格：轻松治愈向</h3>
+            <p>以幽默对话和温馨互动为主，弱化沉重冲突，整体氛围轻松，适合放松时阅读观看。</p>
+            <div class="rank-meta">适合：偏好轻松、无压力体验</div>
+          </div>
+        </article>
+        <article class="rank-item">
+          <div class="rank-no">05</div>
+          <div class="rank-body">
+            <h3>成长向：双向奔赴</h3>
+            <p>两人在关系中都有改变与进步，感情不是单向付出，而是彼此支撑、共同面对问题。</p>
+            <div class="rank-meta">适合：偏好平等关系、共同成长</div>
+          </div>
+        </article>
+        <article class="rank-item">
+          <div class="rank-no">06</div>
+          <div class="rank-body">
+            <h3>悬疑融合：情感与解谜并行</h3>
+            <p>在感情线之外加入悬念元素，通过逐步揭开真相推动剧情，适合喜欢多线叙事的读者。</p>
+            <div class="rank-meta">适合：偏好剧情层次丰富</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 观读指南 -->
+  <section class="guide" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Reading Guide</span>
+        <h2>观读指南：如何挑到合口味的作品</h2>
+        <p>题材标签相同，实际体验可能差别很大。按照下面的步骤，可以更高效地找到适合自己的内容。</p>
+      </div>
+      <div class="guide-steps">
+        <div class="step">
+          <b>STEP 01</b>
+          <h3>先明确偏好类型</h3>
+          <p>想清楚自己更看重哪一点：是短时间内获得情绪满足，还是愿意花时间跟随人物慢慢成长。偏好不同，适合的载体也不同。</p>
+        </div>
+        <div class="step">
+          <b>STEP 02</b>
+          <h3>查看简介与标签</h3>
+          <p>通过简介了解基本设定、人物关系和大致走向，注意是否包含自己不太喜欢的元素，减少试错成本。</p>
+        </div>
+        <div class="step">
+          <b>STEP 03</b>
+          <h3>试看开头部分</h3>
+          <p>先看前几集或前几章，感受叙事节奏和语言风格。开头是否吸引人，往往能反映整体观感。</p>
+        </div>
+        <div class="step">
+          <b>STEP 04</b>
+          <h3>合理安排时间</h3>
+          <p>短剧与长篇连载都容易连续投入较长时间，建议设定观看或阅读时段，保持规律作息。</p>
+        </div>
+      </div>
+      <div class="notice">
+        <b>内容辨别提示</b>
+        宠妻题材属于文艺创作范畴，情节多为艺术化处理。现实中健康的亲密关系建立在平等沟通、相互尊重与共同承担之上，请勿将虚构桥段直接套用于现实生活。同时，请通过正规渠道观看和阅读，注意保护个人信息与财产安全。
+      </div>
+    </div>
+  </section>
+
+  <!-- 常见问题 -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">FAQ</span>
+        <h2>常见问题</h2>
+        <p>关于“爱妻如命”这一题材，读者和观众经常提出的几个问题，这里做统一说明。</p>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>“爱妻如命”具体指什么类型的作品？</summary>
+          <p>它通常是对一类情感题材的概括，核心是主角对妻子表现出持续、稳定的深情与重视。表现形式包括短剧、网络小说、情感故事等，情节设定各异，但情感基调相对统一。</p>
+        </details>
+        <details>
+          <summary>这类题材和普通甜宠故事有什么区别？</summary>
+          <p>甜宠更侧重恋爱阶段的甜蜜互动，而“爱妻如命”类作品往往以婚姻关系为背景，关注的是婚后相处、家庭责任与长期陪伴，情感表达更偏向日常与稳定。</p>
+        </details>
+        <details>
+          <summary>短剧和小说应该怎么选？</summary>
+          <p>如果时间碎片化、希望快速获得情绪反馈，可以优先考虑短剧；如果更在意人物心理、关系变化的完整过程，小说通常能提供更充分的展开空间。两者并不冲突，可以按场景交替选择。</p>
+        </details>
+        <details>
+          <summary>如何判断一部作品是否适合自己？</summary>
+          <p>建议先看简介确认基本设定，再试看前几集或前几章。重点关注三点：人物是否有独立性格、情感推进是否自然、冲突是否服务于关系成长。如果开头就感到不适，不必勉强继续。</p>
+        </details>
+        <details>
+          <summary>观看这类内容需要注意什么？</summary>
+          <p>一是控制时长，避免影响正常作息；二是区分虚构与现实，不将剧情中的极端行为视为现实关系的标准；三是选择正规平台，注意账号与支付安全。</p>
+        </details>
+        <details>
+          <summary>为什么这类题材一直有稳定的受众？</summary>
+          <p>它回应了人们对稳定情感与被认真对待的普遍期待。在快节奏的生活中，这类内容提供了一种相对轻松的情绪出口。当然，不同作品质量参差不齐，选择时仍需结合自身判断。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>关于本专题</h4>
+        <p>本页面围绕“爱妻如命”这一情感题材关键词，整理题材特征、常见设定、内容方向与观读建议，供读者在筛选短剧、小说等作品时参考。</p>
+      </div>
+      <div>
+        <h4>快速导航</h4>
+        <ul>
+          <li><a href="#intro">题材概览</a></li>
+          <li><a href="#feature">核心看点</a></li>
+          <li><a href="#setting">常见设定</a></li>
+          <li><a href="#rank">热门方向</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>观读参考</h4>
+        <ul>
+          <li><a href="#guide">挑选方法</a></li>
+          <li><a href="#guide">时间安排</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#guide">内容辨别提示</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>温馨提示</h4>
+        <ul>
+          <li>请通过正规渠道观看与阅读</li>
+          <li>理性看待虚构情节</li>
+          <li>注意保护个人信息</li>
+          <li>保持规律作息</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>爱妻如命 · 深情宠妻题材专题页面</span>
+      <span>内容仅供阅读与观看参考</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 导航平滑定位与高亮
+  (function () {
+    var links = document.querySelectorAll('nav.main-nav a');
+    var sections = [];
+    links.forEach(function (a) {
+      var id = a.getAttribute('href');
+      if (id && id.charAt(0) === '#') {
+        var el = document.querySelector(id);
+        if (el) sections.push({ link: a, el: el });
+      }
+    });
+
+    function setActive() {
+      var pos = window.scrollY + 140;
+      var current = sections[0];
+      sections.forEach(function (item) {
+        if (item.el.offsetTop <= pos) current = item;
+      });
+      links.forEach(function (a) { a.classList.remove('active'); });
+      if (current) current.link.classList.add('active');
+    }
+
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          setActive();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+    setActive();
+  })();
+</script>
+
+</body>
+  </html>
