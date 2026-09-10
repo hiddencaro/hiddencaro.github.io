@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>冒险迷宫村布局图 - 村庄规划思路与布局参考指南</title>
+<meta name="description" content="冒险迷宫村布局图专题，整理村庄规划的基本思路、区域划分、设施搭配与常见布局问题，帮助玩家理解迷宫村建设与布局参考方向。">
+<meta name="keywords" content="冒险迷宫村布局图,冒险迷宫村,村庄布局,迷宫村规划,布局参考">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --ink:#1f2a24;
+    --ink-soft:#4a5a50;
+    --paper:#f4f1e8;
+    --paper-2:#e9e4d5;
+    --line:#cfc7b2;
+    --green:#3f7d5c;
+    --green-deep:#2b5a41;
+    --gold:#c08a2e;
+    --gold-soft:#e6c98a;
+    --radius:14px;
+    --shadow:0 6px 22px rgba(40,50,40,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(63,125,92,.07) 0, transparent 42%),
+      radial-gradient(circle at 88% 6%, rgba(192,138,46,.08) 0, transparent 38%);
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  .wrap{width:min(1180px,92%);margin:0 auto;}
+
+  /* ---------- 顶栏 ---------- */
+  .topbar{
+    background:var(--green-deep);
+    color:#eaf3ec;
+    font-size:13px;
+    letter-spacing:.4px;
+  }
+  .topbar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:8px 0;flex-wrap:wrap;gap:6px;
+  }
+  .topbar span.dot{color:var(--gold-soft);margin-right:6px;}
+
+  /* ---------- 页眉 ---------- */
+  header.site-head{
+    background:linear-gradient(160deg,#2b5a41 0%,#3f7d5c 58%,#4e8f6b 100%);
+    color:#f2f7f2;
+    position:relative;
+    overflow:hidden;
+  }
+  header.site-head::after{
+    content:"";
+    position:absolute;inset:auto -60px -120px auto;
+    width:360px;height:360px;
+    background:radial-gradient(circle,rgba(230,201,138,.22),transparent 68%);
+    border-radius:50%;
+  }
+  .head-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:20px;padding:22px 0;flex-wrap:wrap;position:relative;z-index:2;
+  }
+  .brand{display:flex;align-items:center;gap:14px;}
+  .brand-mark{
+    width:52px;height:52px;flex:0 0 52px;
+    border-radius:12px;
+    background:linear-gradient(145deg,#e6c98a,#c08a2e);
+    color:#2b5a41;
+    display:grid;place-items:center;
+    font-weight:800;font-size:22px;
+    box-shadow:0 4px 14px rgba(0,0,0,.22);
+  }
+  .brand-text h1{
+    font-size:clamp(19px,2.4vw,25px);
+    font-weight:800;letter-spacing:.5px;line-height:1.3;
+  }
+  .brand-text p{
+    font-size:12.5px;color:#cfe3d6;letter-spacing:1.6px;margin-top:2px;
+  }
+  nav.main-nav{display:flex;gap:6px;flex-wrap:wrap;}
+  nav.main-nav a{
+    padding:8px 14px;border-radius:999px;font-size:14px;
+    color:#e4f0e7;transition:.22s;border:1px solid transparent;
+  }
+  nav.main-nav a:hover{
+    background:rgba(255,255,255,.14);
+    border-color:rgba(230,201,138,.45);
+    color:#fff;
+  }
+
+  /* ---------- 首屏 ---------- */
+  .hero{
+    background:var(--paper-2);
+    border-bottom:1px solid var(--line);
+    padding:44px 0 40px;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.35fr 1fr;gap:34px;align-items:start;
+  }
+  .hero h2{
+    font-size:clamp(23px,3.1vw,33px);
+    line-height:1.34;font-weight:800;color:var(--green-deep);
+    margin-bottom:14px;
+  }
+  .hero h2 em{
+    font-style:normal;
+    background:linear-gradient(transparent 62%,var(--gold-soft) 62%);
+    padding:0 2px;
+  }
+  .hero p.lead{
+    color:var(--ink-soft);font-size:15.5px;margin-bottom:18px;max-width:52ch;
+  }
+  .hero-points{list-style:none;display:grid;gap:9px;margin-bottom:22px;}
+  .hero-points li{
+    position:relative;padding-left:24px;font-size:14.5px;color:var(--ink-soft);
+  }
+  .hero-points li::before{
+    content:"";position:absolute;left:4px;top:10px;
+    width:9px;height:9px;border-radius:2px;
+    background:var(--gold);transform:rotate(45deg);
+  }
+  .btn-row{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:11px 24px;border-radius:999px;
+    font-size:14.5px;font-weight:600;transition:.22s;cursor:pointer;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:var(--green-deep);color:#fff;}
+  .btn-primary:hover{background:#22492f;transform:translateY(-2px);}
+  .btn-ghost{border-color:var(--green-deep);color:var(--green-deep);background:transparent;}
+  .btn-ghost:hover{background:rgba(43,90,65,.08);}
+
+  .hero-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px 20px 18px;box-shadow:var(--shadow);
+  }
+  .hero-card h3{
+    font-size:15px;color:var(--green-deep);margin-bottom:14px;
+    padding-bottom:10px;border-bottom:1px dashed var(--line);
+    letter-spacing:.6px;
+  }
+  .mini-map{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:14px;
+  }
+  .mini-map div{
+    aspect-ratio:1/1;border-radius:8px;
+    display:grid;place-items:center;
+    font-size:11.5px;color:#fff;font-weight:600;text-align:center;
+    line-height:1.25;padding:4px;
+  }
+  .mc-1{background:#3f7d5c;}
+  .mc-2{background:#5f9c78;}
+  .mc-3{background:#c08a2e;}
+  .mc-4{background:#8a7a52;}
+  .mc-5{background:#4e8f6b;}
+  .mc-6{background:#a9713a;}
+  .mc-7{background:#6f8f5b;}
+  .mc-8{background:#9c8552;}
+  .hero-card p.note{font-size:13px;color:var(--ink-soft);}
+
+  /* ---------- 通用区块 ---------- */
+  section.block{padding:52px 0;}
+  section.block.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .sec-head{margin-bottom:28px;}
+  .sec-head .kicker{
+    display:inline-block;font-size:12px;letter-spacing:2.4px;
+    color:var(--gold);font-weight:700;margin-bottom:8px;
+  }
+  .sec-head h2{
+    font-size:clamp(20px,2.6vw,27px);color:var(--green-deep);
+    font-weight:800;line-height:1.35;
+  }
+  .sec-head p{color:var(--ink-soft);font-size:14.5px;margin-top:8px;max-width:70ch;}
+
+  /* ---------- 布局思路卡片 ---------- */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;box-shadow:var(--shadow);transition:.24s;
+  }
+  .card:hover{transform:translateY(-4px);border-color:var(--gold-soft);}
+  .card .num{
+    width:34px;height:34px;border-radius:9px;display:grid;place-items:center;
+    background:rgba(63,125,92,.12);color:var(--green-deep);
+    font-weight:800;font-size:15px;margin-bottom:14px;
+  }
+  .card h3{font-size:16.5px;color:var(--green-deep);margin-bottom:9px;}
+  .card p{font-size:14px;color:var(--ink-soft);}
+
+  /* ---------- 分区表 ---------- */
+  .zone-list{display:grid;gap:14px;}
+  .zone{
+    display:grid;grid-template-columns:150px 1fr;gap:18px;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 20px;box-shadow:var(--shadow);
+  }
+  .zone .tag{
+    align-self:start;justify-self:start;
+    background:var(--green-deep);color:#fff;
+    font-size:13px;font-weight:600;
+    padding:6px 14px;border-radius:999px;letter-spacing:.6px;
+  }
+  .zone h3{font-size:15.5px;color:var(--ink);margin-bottom:6px;}
+  .zone p{font-size:14px;color:var(--ink-soft);}
+  .zone ul{margin-top:8px;padding-left:18px;font-size:13.5px;color:var(--ink-soft);}
+  .zone ul li{margin-bottom:3px;}
+
+  /* ---------- 步骤 ---------- */
+  .steps{display:grid;gap:0;counter-reset:step;}
+  .step{
+    display:grid;grid-template-columns:64px 1fr;gap:18px;
+    padding:20px 0;border-bottom:1px dashed var(--line);
+  }
+  .step:last-child{border-bottom:none;}
+  .step .idx{
+    width:46px;height:46px;border-radius:50%;
+    background:linear-gradient(145deg,#e6c98a,#c08a2e);
+    color:#2b5a41;font-weight:800;font-size:17px;
+    display:grid;place-items:center;
+    box-shadow:0 3px 10px rgba(192,138,46,.32);
+  }
+  .step h3{font-size:16px;color:var(--green-deep);margin-bottom:6px;}
+  .step p{font-size:14px;color:var(--ink-soft);}
+
+  /* ---------- 注意事项 ---------- */
+  .tips{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .tip{
+    background:var(--paper-2);border-left:4px solid var(--gold);
+    border-radius:0 10px 10px 0;padding:16px 18px;
+  }
+  .tip h3{font-size:15px;color:var(--green-deep);margin-bottom:6px;}
+  .tip p{font-size:13.5px;color:var(--ink-soft);}
+
+  /* ---------- FAQ ---------- */
+  .faq{display:grid;gap:12px;}
+  details{
+    background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:0 20px;box-shadow:var(--shadow);overflow:hidden;
+  }
+  details[open]{border-color:var(--gold-soft);}
+  summary{
+    cursor:pointer;list-style:none;
+    padding:16px 0;font-size:15px;font-weight:600;color:var(--green-deep);
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";font-size:20px;color:var(--gold);font-weight:400;
+    transition:.2s;flex:0 0 auto;
+  }
+  details[open] summary::after{content:"–";}
+  details p{
+    font-size:14px;color:var(--ink-soft);
+    padding:0 0 18px;border-top:1px dashed var(--line);padding-top:14px;
+  }
+
+  /* ---------- 侧栏 ---------- */
+  .layout-side{display:grid;grid-template-columns:1fr 320px;gap:34px;align-items:start;}
+  aside.side{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;box-shadow:var(--shadow);position:sticky;top:20px;
+  }
+  aside.side h3{
+    font-size:15px;color:var(--green-deep);margin-bottom:14px;
+    padding-bottom:10px;border-bottom:1px dashed var(--line);
+  }
+  aside.side ul{list-style:none;display:grid;gap:11px;}
+  aside.side li{
+    font-size:13.5px;color:var(--ink-soft);
+    padding-left:16px;position:relative;line-height:1.6;
+  }
+  aside.side li::before{
+    content:"";position:absolute;left:0;top:9px;
+    width:7px;height:7px;border-radius:50%;background:var(--green);
+  }
+
+  /* ---------- 页脚 ---------- */
+  footer.site-foot{
+    background:var(--green-deep);color:#c9dfd0;
+    padding:40px 0 26px;margin-top:20px;
+  }
+  .foot-grid{
+    display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:30px;
+    padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.14);
+  }
+  footer h4{font-size:14.5px;color:#fff;margin-bottom:12px;letter-spacing:.6px;}
+  footer p{font-size:13px;line-height:1.8;color:#a9c8b4;}
+  footer ul{list-style:none;display:grid;gap:8px;}
+  footer ul a{font-size:13px;color:#a9c8b4;transition:.2s;}
+  footer ul a:hover{color:var(--gold-soft);}
+  .copyright{
+    text-align:center;font-size:12.5px;color:#8fb69c;padding-top:20px;
+  }
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .grid-3{grid-template-columns:repeat(2,1fr);}
+    .layout-side{grid-template-columns:1fr;}
+    aside.side{position:static;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:680px){
+    .head-inner{flex-direction:column;align-items:flex-start;}
+    .grid-3,.grid-2,.tips{grid-template-columns:1fr;}
+    .zone{grid-template-columns:1fr;gap:10px;}
+    .step{grid-template-columns:48px 1fr;gap:14px;}
+    .foot-grid{grid-template-columns:1fr;}
+    section.block{padding:38px 0;}
+    .hero{padding:32px 0 30px;}
+    .mini-map{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span><span class="dot">◆</span>冒险迷宫村布局图 · 规划思路整理</span>
+    <span>布局参考 · 分区建议 · 常见问题</span>
+  </div>
+</div>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <div class="brand">
+      <div class="brand-mark">迷</div>
+      <div class="brand-text">
+        <h1>冒险迷宫村布局图</h1>
+        <p>VILLAGE LAYOUT REFERENCE</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <a href="#idea">布局思路</a>
+      <a href="#zone">分区参考</a>
+      <a href="#step">规划步骤</a>
+      <a href="#tips">注意事项</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h2>看懂<em>冒险迷宫村布局图</em>，先理清村庄的功能分区</h2>
+        <p class="lead">
+          所谓“冒险迷宫村布局图”，通常指的是玩家在规划村庄时，对住宅、设施、通道、迷宫入口等元素所做的空间安排。
+          它并不是一张固定不变的官方图纸，而是一套围绕“好用、好走、好扩展”展开的规划思路。
+          本文从分区逻辑、动线走向、设施搭配几个角度，梳理布局时值得参考的方向。
+        </p>
+        <ul class="hero-points">
+          <li>先确定核心区域，再向外扩展，避免一开始就铺得太散</li>
+          <li>通道尽量保持连通，减少绕路和死胡同</li>
+          <li>功能相近的设施放在一起，方便集中管理和升级</li>
+          <li>给后续扩建留出空位，不必一次把地皮填满</li>
+        </ul>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#zone">查看分区参考</a>
+          <a class="btn btn-ghost" href="#faq">浏览常见问题</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>布局元素示意（概念图）</h3>
+        <div class="mini-map">
+          <div class="mc-1">住宅区</div>
+          <div class="mc-2">商业区</div>
+          <div class="mc-3">核心广场</div>
+          <div class="mc-4">仓储区</div>
+          <div class="mc-5">训练区</div>
+          <div class="mc-6">迷宫入口</div>
+          <div class="mc-7">绿地区</div>
+          <div class="mc-8">预留空地</div>
+        </div>
+        <p class="note">
+          上图仅用于说明分区概念，不同作品、不同版本的设施名称与规则可能并不相同，
+          实际布局请以自己游玩的版本为准。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 布局思路 -->
+  <section class="block" id="idea">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">LAYOUT IDEA</span>
+        <h2>布局前先想清楚的三件事</h2>
+        <p>很多布局图看起来漂亮，但真正用起来别扭，往往是因为一开始没有想清楚“为谁服务、怎么走、往哪扩”。</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <div class="num">01</div>
+          <h3>用途优先</h3>
+          <p>先列出村庄里必须存在的功能：居住、生产、交易、训练、探索入口等。功能决定位置，而不是先画格子再想放什么。</p>
+        </article>
+        <article class="card">
+          <div class="num">02</div>
+          <h3>动线优先</h3>
+          <p>村庄里的人和角色需要不断移动。通道是否顺畅、是否出现断头路，往往比单个建筑摆得整齐更重要。</p>
+        </article>
+        <article class="card">
+          <div class="num">03</div>
+          <h3>扩展优先</h3>
+          <p>布局不是一次成型。预留可延展的边角地带，后续增加设施时就不必大范围返工重排。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 分区参考 -->
+  <section class="block alt" id="zone">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">ZONE REFERENCE</span>
+        <h2>常见功能分区与摆放参考</h2>
+        <p>下面按功能划分出几类常见区域，并说明它们通常适合放在什么位置、需要注意什么。</p>
+      </div>
+
+      <div class="zone-list">
+        <div class="zone">
+          <span class="tag">核心区</span>
+          <div>
+            <h3>村庄中心与主通道</h3>
+            <p>核心区是整个布局的起点，通常承担连接各分区的枢纽作用。</p>
+            <ul>
+              <li>建议放在地图中段，方便向四周延伸</li>
+              <li>主通道保持较宽，避免后期拥堵</li>
+              <li>周围可留出少量空地作为缓冲</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="zone">
+          <span class="tag">居住区</span>
+          <div>
+            <h3>住宅与生活设施</h3>
+            <p>居住区讲究安静与稳定，一般不需要紧贴最热闹的位置。</p>
+            <ul>
+              <li>可沿主通道一侧成排布置，便于统一管理</li>
+              <li>与生产、仓储区保持适当距离，减少互相干扰</li>
+              <li>预留升级或扩建的位置</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="zone">
+          <span class="tag">生产区</span>
+          <div>
+            <h3>工坊、田地与资源点</h3>
+            <p>生产类设施通常占地较大，且与资源获取相关，位置安排会影响效率。</p>
+            <ul>
+              <li>靠近资源来源方向摆放，减少往返距离</li>
+              <li>集中成片，方便统一查看和升级</li>
+              <li>避免被住宅包围，留出运输通道</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="zone">
+          <span class="tag">交易区</span>
+          <div>
+            <h3>商店与集市</h3>
+            <p>交易区人流较集中，适合放在主通道附近或核心区周边。</p>
+            <ul>
+              <li>沿主路两侧排列，方便进出</li>
+              <li>与仓储区保持较短距离，便于补货</li>
+              <li>周围可搭配少量装饰或空地</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="zone">
+          <span class="tag">探索区</span>
+          <div>
+            <h3>迷宫入口与训练场地</h3>
+            <p>与冒险、探索相关的内容通常集中在村庄边缘或特定方向。</p>
+            <ul>
+              <li>入口位置尽量清晰，避免被建筑遮挡</li>
+              <li>周边留出集合和准备空间</li>
+              <li>与居住区保持一定距离，减少干扰</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="zone">
+          <span class="tag">预留区</span>
+          <div>
+            <h3>空地与发展余量</h3>
+            <p>预留区容易被忽略，但它决定了布局能走多远。</p>
+            <ul>
+              <li>在地图边缘或分区之间留出空位</li>
+              <li>不要为了“填满”而强行塞入建筑</li>
+              <li>后续新增设施时优先使用预留区</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 规划步骤 + 侧栏 -->
+  <section class="block" id="step">
+    <div class="wrap layout-side">
+      <div>
+        <div class="sec-head">
+          <span class="kicker">PLANNING STEPS</span>
+          <h2>从零开始规划布局的参考步骤</h2>
+          <p>如果你还没有头绪，可以按下面的顺序一步步推进，边玩边调整。</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="idx">1</div>
+            <div>
+              <h3>观察地形与出入口</h3>
+              <p>先看清地图的形状、边界和天然通道，确定哪些位置是必经之路，哪些位置相对封闭。这决定了后续分区的大方向。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="idx">2</div>
+            <div>
+              <h3>标出核心与主通道</h3>
+              <p>在地图中间或交通便利处确定核心区，并沿主要方向拉出通道。通道不一定要笔直，但应保持连通。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="idx">3</div>
+            <div>
+              <h3>按功能划出大块区域</h3>
+              <p>把居住、生产、交易、探索等需求分配到不同方向，先定大块，再细化到具体设施。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="idx">4</div>
+            <div>
+              <h3>摆放设施并检查动线</h3>
+              <p>逐个放入设施后，回头走一遍主要路线，看看是否绕路、是否堵住，必要时微调位置。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="idx">5</div>
+            <div>
+              <h3>留白并持续调整</h3>
+              <p>布局是动态过程。随着内容解锁和需求变化，原有安排可能需要调整，留白就是为这种变化做准备。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <h3>布局时值得留意的细节</h3>
+        <ul>
+          <li>通道宽度尽量统一，避免忽宽忽窄造成视觉混乱</li>
+          <li>同类设施集中摆放，便于后续统一升级</li>
+          <li>重要入口不要被大型建筑遮挡</li>
+          <li>装饰元素适量即可，过多会挤压通行空间</li>
+          <li>定期回看整体，避免局部越改越挤</li>
+          <li>不同版本规则不同，参考思路而非照搬坐标</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 注意事项 -->
+  <section class="block alt" id="tips">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">NOTES</span>
+        <h2>布局中常见的误区与注意事项</h2>
+        <p>以下问题在规划过程中比较常见，提前留意可以减少反复返工。</p>
+      </div>
+
+      <div class="tips">
+        <div class="tip">
+          <h3>一开始就追求对称</h3>
+          <p>对称看起来整齐，但往往浪费空间，也不利于按功能分区。先满足使用需求，再考虑美观。</p>
+        </div>
+        <div class="tip">
+          <h3>把地皮全部填满</h3>
+          <p>没有留白的布局在后期几乎没有调整余地，新增设施时只能拆改，代价较高。</p>
+        </div>
+        <div class="tip">
+          <h3>通道过窄或过绕</h3>
+          <p>通道是布局的骨架。过窄容易拥堵，过绕则增加移动成本，都会影响整体体验。</p>
+        </div>
+        <div class="tip">
+          <h3>照搬他人的布局图</h3>
+          <p>不同版本的地图、设施和规则存在差异，直接照搬坐标往往并不适用，理解思路更重要。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">FAQ</span>
+        <h2>关于冒险迷宫村布局图的常见问题</h2>
+        <p>整理了一些玩家在规划布局时经常提出的疑问，供参考。</p>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>冒险迷宫村布局图是固定的吗？</summary>
+          <p>不是。布局图更多是一种规划思路的呈现方式，会随着地图、版本和玩家目标的不同而变化。把它当作参考框架，而不是必须逐格照抄的标准答案。</p>
+        </details>
+        <details>
+          <summary>新手应该先规划哪一部分？</summary>
+          <p>建议先确定核心区和主通道，再考虑居住与生产区域。核心区稳定之后，其他分区的位置会更容易判断。</p>
+        </details>
+        <details>
+          <summary>布局需要一次做到完美吗？</summary>
+          <p>不需要。多数布局都是在游玩过程中逐步调整出来的。先搭出可用结构，再根据实际体验优化，通常比一开始反复推敲更有效率。</p>
+        </details>
+        <details>
+          <summary>设施之间需要保持多大距离？</summary>
+          <p>没有统一标准，主要看设施功能与通道需求。一般来说，同类设施可以靠近，功能差异较大的区域之间留出通道或空地即可。</p>
+        </details>
+        <details>
+          <summary>为什么我的布局看起来总是很乱？</summary>
+          <p>常见原因是缺少统一的分区逻辑，设施随解锁顺序零散摆放。可以先按功能把区域归并，再逐步调整位置。</p>
+        </details>
+        <details>
+          <summary>可以参考别人的布局图吗？</summary>
+          <p>可以参考其中的分区思路和动线处理方式，但具体到坐标和数量，建议结合自己的地图和进度来判断。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>冒险迷宫村布局图</h4>
+        <p>
+          本页面围绕村庄布局的规划思路、功能分区与常见问题展开整理，
+          内容以通用参考为主，具体规则请以实际游玩的版本为准。
+        </p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#idea">布局思路</a></li>
+          <li><a href="#zone">分区参考</a></li>
+          <li><a href="#step">规划步骤</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>相关阅读</h4>
+        <ul>
+          <li><a href="#tips">常见误区</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#zone">设施摆放</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">© 冒险迷宫村布局图 · 规划思路参考页面</p>
+  </div>
+</footer>
+
+<script>
+  // 平滑展开 FAQ：同一时间只保留一个展开项（可选增强，不影响无脚本浏览）
+  (function () {
+    var items = document.querySelectorAll('.faq details');
+    items.forEach(function (item) {
+      item.addEventListener('toggle', function () {
+        if (item.open) {
+          items.forEach(function (other) {
+            if (other !== item) other.open = false;
+          });
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+  </html>
